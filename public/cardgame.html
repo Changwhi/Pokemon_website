@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src="/cardgame.js"></script>
+
+    <style>
+      * {
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      header,
+      footer {
+        text-align: center;
+      }
+
+      nav {
+        padding: 10px;
+        background-color: black;
+        display: grid;
+        grid-template-columns: auto auto;
+      }
+
+      nav a {
+        padding: 10px;
+        text-decoration: none;
+        color: white;
+        text-align: center;
+      }
+
+      @media screen and (max-width: 640px) {
+      }
+
+      body {
+        margin: 0px;
+        background-color: azure;
+      }
+
+      #game_grid {
+        padding-top: 100px;
+        border: 2px tomato;
+        display: flex;
+        flex-wrap: wrap;
+        height: 400px;
+        width: 600px;
+        margin: auto;
+        gap: 3px;
+        perspective: 1000px;
+      }
+
+      .card {
+        width: calc(33.3% - 10px);
+        position: relative;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+      }
+
+      .front_face,
+      .back_face {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        backface-visibility: hidden;
+      }
+
+      .flip {
+        transform: rotateY(180deg);
+      }
+
+      img {
+        width: 100%;
+      }
+
+      .front_face {
+        transform: rotateY(180deg);
+      }
+
+      #myProgress {
+        width: 70%;
+        height: 30px;
+        position: relative;
+        background-color: #ddd;
+      }
+
+      #myBar {
+        background-color: #4caf50;
+        width: 10px;
+        height: 30px;
+        position: absolute;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h3>Pokémon hompage</h3>
+    </header>
+    <div style="padding: 8px">
+      <a href="/account.html" style="border: black solid 2px">Account</a>
+    </div>
+    <nav>
+      <div id="left_nav">
+        <a href="/index.html">Main</a>
+        <a href="/search.html">Search Pokémon</a>
+        <a href="/cardgame.html">Poke Card Game!</a>
+        <a href="/timeline.html">UserProfile</a>
+        <a href="/shoppingcart.html">Shopping_Cart</a>
+      </div>
+    </nav>
+
+    <br />
+    <div>Welcome to the Poke memorize game!</div>
+    <br />
+    <div id="gamesetting">
+      <div id="dimension_box">
+        <label> Please enter the grid dimension (number x number)</label>
+        <select name="dimension" id="dimension">
+          <option value="none2s">=== Choose ===</option>
+          <option id="2" value="4">2 x 2</option>
+          <option id="3" value="6">3 x 2</option>
+          <option id="4" value="16">4 x 4</option>
+          <option id="5" value="20">5 x 4</option>
+          <option id="6" value="36">6 x 6</option>
+          <option id="7" value="42">7 x 6</option>
+        </select>
+      </div>
+
+      <div id="count_poke">
+        <label>
+          Please enter the number of Pokemons in this game
+          <span id="txt_card_num"></span
+        ></label>
+        <input type="text" placeholder="Type here" id="input_search" />
+        <button type="submit" value="submit" id="start_game">Enter</button>
+      </div>
+    </div>
+
+    <h3>Timer</h3>
+    <label> Choose Level of this game</label>
+    <select name="level" id="level">
+      <option id="2" value="50">Easy</option>
+      <option id="3" value="30">Normal</option>
+      <option id="4" value="10">Hard</option>
+    </select>
+    <div id="myProgress">
+      <div id="myBar"></div>
+    </div>
+
+    <div id="game_grid"></div>
+
+    <footer>
+      <h5>Built using PokeAPI</h5>
+    </footer>
+  </body>
+</html>

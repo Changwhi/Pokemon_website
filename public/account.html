@@ -1,0 +1,120 @@
+<html>
+
+<head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+    <script src="account.js"></script>
+
+    <style>
+        * {
+            font-family: 'Courier New', Courier, monospace;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0px;
+        }
+
+        header,
+        footer {
+            text-align: center;
+        }
+
+        nav {
+            padding: 10px;
+            background-color: black;
+            display: grid;
+            grid-template-columns: auto auto;
+        }
+
+        nav a {
+            padding: 10px;
+            text-decoration: none;
+            color: white;
+            text-align: center;
+        }
+        main {
+            display: grid;
+            justify-items: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 85%;
+            display: grid;
+            grid-template-rows: repeat(3, auto);
+            grid-template-columns: repeat(3, auto);
+            gap: 10px;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .img_box{
+
+            margin: 20px 20;
+            border: solid black;
+            border-radius: 1rem;
+            text-align: center;
+            background: linear-gradient(
+                rgb(168, 255, 152), 
+                rgb(214, 162, 228));
+
+        }
+        #buttons{
+            text-align: center;
+        }
+
+
+        
+        @media screen and (max-width: 640px){
+      
+        .container {
+            width: 85%;
+            display: grid;
+            grid-template-columns: repeat(1, auto);
+            grid-template-rows: repeat(1, auto);
+
+
+        }
+
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h3>Pokémon hompage</h3>
+    </header>
+    <div style="padding: 8px;">
+
+        <a href="/account.html" style="border: black solid 2px;">Account</a>
+
+
+
+</div>    
+    <nav>
+        <div id="left_nav">
+            <a href="/index.html">Main</a>
+            <a href="/search.html">Search Pokémon</a>
+            <a href="/cardgame.html">Poke Card Game!</a>
+            <a href="/timeline.html">UserProfile</a>
+            <a href="/shoppingcart.html">Shopping_Cart</a>
+        </div>
+
+    </nav>
+   
+    <div id="menu">
+    <a href="/login_logout.html" style="border: black solid 2px;">Sign In!</a>
+    <a href="/signout.html" style="border: black solid 2px;">Sign out!</a>
+    </div>
+
+
+    <footer>
+        <h5> Built using PokeAPI</h5>
+    </footer>
+</body>
+
+</html>

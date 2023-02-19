@@ -1,0 +1,239 @@
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="search.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <style>
+      #history {
+        height: 250px;
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .open-button {
+        background-color: #555;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        opacity: 0.8;
+      }
+
+      .form-popup {
+        display: none;
+        position: fixed;
+        background-color: blanchedalmond;
+        border: 4px solid black;
+        z-index: 9;
+      }
+
+      .form-container {
+        max-width: 300px;
+        padding: 10px;
+        background-color: white;
+      }
+
+      .form-container .cancel {
+        background-color: red;
+      }
+
+      .form-container .btn:hover,
+      .open-button:hover {
+        opacity: 1;
+      }
+
+      * {
+        font-family: "Courier New", Courier, monospace;
+
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0px;
+      }
+
+      header,
+      footer {
+        text-align: center;
+      }
+
+      nav {
+        padding: 10px;
+        background-color: black;
+        display: grid;
+        grid-template-columns: auto auto;
+      }
+
+      nav a {
+        padding: 10px;
+        text-decoration: none;
+        color: white;
+        text-align: center;
+      }
+
+      #total_container {
+        width: 85%;
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        grid-template-rows: repeat(3, auto);
+      }
+
+      #main_ {
+        display: grid;
+        justify-items: center;
+      }
+
+      .poke_container {
+        margin: 20px 20px;
+        border: solid black;
+        border-radius: 1rem;
+        text-align: center;
+      }
+
+      .poke_container img {
+        width: 100%;
+      }
+
+      #sorting_menu {
+        padding-top: 20px;
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      #class_selection,
+      #search_bar {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      #Type_ {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        gap: 10px;
+      }
+
+      @media screen and (max-width: 640px) {
+        #sorting_menu {
+          padding-top: 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          align-items: center;
+        }
+
+        #total_container {
+          width: 85%;
+          display: grid;
+          grid-template-columns: repeat(1, auto);
+          grid-template-rows: repeat(1, auto);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h3>Pokémon hompage</h3>
+    </header>
+    <div style="padding: 8px">
+      <a href="/account.html" style="border: black solid 2px">Account</a>
+    </div>
+    <nav>
+      <div id="left_nav">
+        <a href="/index.html">Main</a>
+        <a href="/search.html">Search Pokémon</a>
+        <a href="/cardgame.html">Poke Card Game!</a>
+        <a href="/timeline.html">UserProfile</a>
+        <a href="/shoppingcart.html">Shopping_Cart</a>
+      </div>
+    </nav>
+    <div id="sorting_menu">
+      <div id="class_selection">
+        <label>Choose a class:</label>
+        <select name="poke_type" id="poke_type">
+          <option value="none">=== Choose ===</option>
+          <option value="normal">normal</option>
+          <option value="fighting">fighting</option>
+          <option value="flying">flying</option>
+          <option value="poison">poison</option>
+          <option value="ground">ground</option>
+          <option value="rock">rock</option>
+          <option value="bug">bug</option>
+          <option value="ghost">ghost</option>
+          <option value="steel">steel</option>
+          <option value="fire">fire</option>
+          <option value="water">water</option>
+          <option value="grass">grass</option>
+          <option value="electric">electric</option>
+          <option value="psychic">psychic</option>
+          <option value="ice">ice</option>
+          <option value="dragon">dragon</option>
+          <option value="dark">dark</option>
+          <option value="fairy">fairy</option>
+          <option value="unknown">unknown</option>
+          <option value="shadow">shadow</option>
+        </select>
+      </div>
+
+      <div id="search_bar">
+        <label>Choose Name or ID</label>
+        <select name="search_type" id="search_type">
+          <option value="none">=== Choose ===</option>
+          <option value="Name">Name</option>
+          <option value="ID">ID</option>
+        </select>
+      </div>
+
+      <div id="Type_">
+        <input type="text" placeholder="Search" id="input_search" />
+        <button type="submit" value="submit" id="search_poke">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+
+      <div id="history_container">
+        <button class="open-button" onclick="openForm()">Open Form</button>
+
+        <div class="form-popup" id="myForm">
+          <h1>History</h1>
+          <span id="history"> </span>
+          <button type="button" class="btn cancel" onclick="closeForm()">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="main_">
+      <div id="total_container"></div>
+    </div>
+
+    <div id="buttons">
+      <button class="numbered" id="1">First</button>
+      <button class="numbered prev" id="prev">prev</button>
+
+      <span id="numbered_button"> </span>
+
+      <button class="numbered next" id="next">Next</button>
+      <button class="numbered last" id="last">Last</button>
+    </div>
+
+    <footer>
+      <h5>Built using PokeAPI</h5>
+    </footer>
+  </body>
+</html>
