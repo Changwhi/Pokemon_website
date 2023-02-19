@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="shoppingcart.js"></script>
+
+    <meta charset="UTF-8" />
+    <title>userprofile</title>
+
+    <style>
+      * {
+        font-family: "Courier New", Courier, monospace;
+
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0px;
+      }
+
+      header,
+      footer {
+        text-align: center;
+      }
+
+      nav {
+        padding: 10px;
+        background-color: black;
+        display: grid;
+        grid-template-columns: auto auto;
+      }
+
+      nav a {
+        padding: 10px;
+        text-decoration: none;
+        color: white;
+        text-align: center;
+      }
+      main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #main_2 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        padding-top: 20px;
+        padding-left: 20px;
+      }
+
+      #cards {
+        display: grid;
+        grid-template-columns: repeat(2, 200px);
+        grid-template-rows: repeat(2, 220px);
+        gap: 10px;
+      }
+
+      .CartContainer {
+        border: solid black 2px;
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+        height: 220px;
+        background-color: aquamarine;
+      }
+
+      #pre {
+        display: grid;
+        grid-template-columns: repeat(2, 200px);
+        grid-template-rows: repeat(2, 220px);
+        gap: 10px;
+        align-items: center;
+        justify-items: center;
+      }
+
+      #precontainer {
+        border: solid 2px aqua;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 500px;
+        overflow: auto;
+      }
+
+      #cardscontainer {
+        border: solid 2px aqua;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 500px;
+        overflow: auto;
+      }
+      #detailscontainer {
+        border: solid 2px aqua;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 500px;
+        overflow: auto;
+      }
+      #details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 200px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h3>Pokémon hompage</h3>
+    </header>
+    <div style="padding: 8px">
+      <a href="/account.html" style="border: black solid 2px">Account</a>
+    </div>
+    <nav>
+      <div id="left_nav">
+        <a href="/index.html">Main</a>
+        <a href="/search.html">Search Pokémon</a>
+        <a href="/cardgame.html">Poke Card Game!</a>
+        <a href="/timeline.html">UserProfile</a>
+        <a href="/shoppingcart.html">Shopping_Cart</a>
+      </div>
+    </nav>
+
+    <main>
+      <div id="main_2">
+        <div id="cardscontainer">
+          <h3>Your cart</h3>
+          <div id="cards"></div>
+        </div>
+
+        <div id="detailscontainer">
+          <div id="details">
+            <h3>Detail</h3>
+          </div>
+          <br />
+          <br />
+          <br />
+          <br />
+          <button id="Checkoutbutton">CheckOut!</button>
+        </div>
+
+        <div id="precontainer">
+          <h3>History</h3>
+
+          <div id="pre"></div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <h5>Built using PokeAPI</h5>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,123 @@
+<html>
+
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0px;
+        }
+
+        header,
+        footer {
+            text-align: center;
+        }
+
+        nav {
+            display: grid;
+            background-color: black;
+            grid-template-columns: auto auto;
+            justify-content: space-between;
+        }
+
+        nav a {
+            display: inline-block;
+            padding: 10px;
+            text-decoration: none;
+            color: white;
+            text-align: center;
+        }
+
+        #left_nav {
+            display: grid;
+            grid-template-columns: auto auto auto;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: auto auto;
+
+            align-items: center;
+            
+        }
+        #picture{
+            display: block;
+        }
+        #state{
+            display: flex;
+            flex-direction: column;
+            gap : 10px
+
+        }
+
+        .container {
+            display: grid;
+            grid-template-rows: repeat(3, auto);
+            grid-template-columns: repeat(3, auto);
+            gap: 10px;
+        }
+
+        img {
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        @media screen and (max-width: 640px){
+      
+        main{
+          width: 85%;
+          display: grid;
+          grid-template-rows: repeat(2, auto);
+          grid-template-columns: repeat(1, auto);
+          justify-items: center;
+
+
+      }
+    
+    }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h3>Pokémon hompage</h3>
+    </header>
+
+    <nav>
+        <div id="left_nav">
+            <a href="/index.html">Main</a>
+            <a href="/search.html">Search Pokémon</a>
+        </div>
+
+
+    </nav>
+    <main>
+        <div id="picture">    
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/<%= id%>.png"
+        alt="">
+        </div>
+        <div id="state">
+            <div>Id : #<%= id%></div>
+            <div>Name : <%= name%></div>
+            <div>Type : <%= type%></div>
+            <div>Height : <%= height%></div>
+            <div>weight : <%= weight%></div>
+
+            <div>
+            <label for="file">HP : <%= hp%></label>
+            <progress id="file" value="<%= hp%>" max="255"> <%= hp%> %</progress>
+            </div>    
+        </div>
+
+
+
+    </main>
+
+    <footer>
+        <h5> Built using PokeAPI</h5>
+    </footer>
+</body>
+
+</html>
